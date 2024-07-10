@@ -13,6 +13,16 @@ public class StrConsumerListeners {
 
     @KafkaListener(groupId = "group-1", topics = "str-topic", containerFactory = "strContainerFactory")
     public void listen(String message){
-        LOG.info("Received message: {} ", message);
+        LOG.info("LISTEN ::: Received message: {} ", message);
+    }
+
+    @KafkaListener(groupId = "group-1", topics = "str-topic", containerFactory = "strContainerFactory")
+    public void log(String message){
+        LOG.info("LOG ::: Received message: {} ", message);
+    }
+
+    @KafkaListener(groupId = "group-2", topics = "str-topic", containerFactory = "strContainerFactory")
+    public void history(String message){
+        LOG.info("HISTORY ::: Received message: {} ", message);
     }
 }
