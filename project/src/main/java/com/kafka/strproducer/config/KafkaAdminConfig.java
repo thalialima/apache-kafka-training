@@ -8,18 +8,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 
 @RequiredArgsConstructor
 @Configuration
 public class KafkaAdminConfig {
 
-
-    public final KafkaProperties properties;
-
-    public KafkaAdminConfig(KafkaProperties properties) {
-        this.properties = properties;
-    }
+    @Resource
+    public KafkaProperties properties;
 
     @Bean
     public KafkaAdmin kafkaAdmin() {

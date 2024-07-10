@@ -10,17 +10,15 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 
 @RequiredArgsConstructor
 @Configuration
 public class StringProducerFactoryConfig {
 
-    private final KafkaProperties properties;
-
-    public StringProducerFactoryConfig(KafkaProperties properties) {
-        this.properties = properties;
-    }
+    @Resource
+    private KafkaProperties properties;
 
     @Bean
     public ProducerFactory<String, String> producerFactory() {
