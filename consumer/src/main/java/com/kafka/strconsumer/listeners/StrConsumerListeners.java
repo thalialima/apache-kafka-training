@@ -15,6 +15,7 @@ public class StrConsumerListeners {
     @StrConsumerCustomListener(groupId = "group-1")
     public void listen(String message) {
         LOG.info("LISTEN ::: Received message: {} ", message);
+        throw new IllegalArgumentException("Exception on listener");
     }
 
     @StrConsumerCustomListener(groupId = "group-1")
