@@ -27,8 +27,8 @@ public class DefaultPaymentService implements PaymentService {
             kafkaTemplate.send("payment-topic", payment);
             LOG.info("Sending payment...");
         } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
             LOG.error("Error during send payment, due to: {}", e.getMessage());
+            Thread.currentThread().interrupt();
         }
 
     }
